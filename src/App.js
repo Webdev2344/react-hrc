@@ -1,15 +1,20 @@
 import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Intro from "./components/intro";
-import Menu from "./components/router";
+import Bet from "./components/bet";
 import "./style.css";
 
 export default function App() {
   return (
-    <div>
-      <Intro title="This is a Dynamic Text" />
-      <Menu />
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
-    </div>
+    <Switch>
+      <Route path="/" exact>
+        <Intro
+          title="Welcome to the Game"
+          subtitle="bet.highradius.com"
+          intro_img="https://cdn-staging.highradius.com/wp-content/uploads/2021/03/intro-img1.png"
+        />
+      </Route>
+      <Route path="/bet" component={Bet} />
+    </Switch>
   );
 }
